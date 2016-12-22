@@ -1,4 +1,4 @@
-# HelloWorld Servlet
+# Hello World Servlet
 
 * Install Eclipse
 * Install Tomcat using the link  
