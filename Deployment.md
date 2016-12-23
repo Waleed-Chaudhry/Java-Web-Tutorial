@@ -1,0 +1,61 @@
+# Deployment Descriptors 
+* Create a new Dynamic Web Project
+* Use Dynamic web module version 2.5 to get the older web.xml file
+* web.xml file gets added to the WEB-INF folder inside WebContent
+
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Deployment</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Hello</display-name>
+    <servlet-name>Hello</servlet-name>
+    <servlet-class>demo.Hello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Hello</servlet-name>
+    <url-pattern>/Hello</url-pattern>
+  </servlet-mapping>
+</web-app>
+```
+
+* web.xml controls the behavior of the url mapping of the deployed website
+* http://localhost:8080/Deployment/ will one of the welcome-file if one them e.g. index.jsp has been defined
+* servlet-name needs to match in the ```<servlet>``` and ```<servlet-mapping>``` sections
+* Change ```<servlet-mappinng>``` to ```<url-pattern>/HelloWorld</url-pattern>``` to have the url: http://localhost:8080/Deployment/HelloWorld
+
+Mappings for Java servlets are added by default for Java servlets on the web.xml file
+
+### JSPs
+Mappings for JSPs don't exist by default. To add the mappings for JSPs
+* Copy the mapping for a servlet
+* Rename ```<servlet>``` and ```<servlet-mapping>``` sections to have the same name (but different from the servlet just copied)
+* Change the ```<servlet-name>``` section in the ```<servlet``` section
+```java
+<servlet>
+  <servlet-name>Login</servlet-name>
+  <jsp-file>/login.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Login</servlet-name>
+  <url-pattern>/loginpage</url-pattern>
+</servlet-mapping>
+```
+* Run by selecting the JSP file
+
+### Deploying locally 
+* Run click the project and select export as war file
+* Save the war file locally
+
+
+
+
